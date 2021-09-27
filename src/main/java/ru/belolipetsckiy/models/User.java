@@ -3,6 +3,7 @@ package ru.belolipetsckiy.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -15,7 +16,8 @@ import java.util.Set;
 @Table(name = "users")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     @NotEmpty(message = "Name should not be empty")
@@ -33,6 +35,7 @@ public class User implements UserDetails {
     @Email(message = "Email should be valid")
     private String email;
     @Column
+    @NotEmpty(message = "Password should not be empty")
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)

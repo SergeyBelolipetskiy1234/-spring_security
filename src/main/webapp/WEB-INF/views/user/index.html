@@ -26,6 +26,9 @@
         <th>Surname</th>
         <th>Age</th>
         <th>Email</th>
+        <th>Id</th>
+        <th>Role</th>
+        <th>Password</th>
     </tr>
 
 <tr th:each="user, state : ${user}"
@@ -37,11 +40,16 @@
     <td th:utext="${user.getSurname}">Surname</td>
     <td th:utext="${user.getAge}">Age</td>
     <td th:utext="${user.getEmail}">Email</td>
+    <td th:text="${user.getId()}">Id</td>
+    <td th:each="role: ${roles}"><p th:text="${role.name}"></p></td>
+    <td th:text="${user.getPassword()}">Password</td>
 </tr>
 </table>
 
 <br/>
 <hr/>
 <a href="/user/new">Create new user</a>
+<br/>
+<a th:href="@{/logout}">Logout</a>
 </body>
 </html>

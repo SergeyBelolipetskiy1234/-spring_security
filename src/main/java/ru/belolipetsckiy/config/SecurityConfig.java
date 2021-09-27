@@ -40,7 +40,6 @@ public DaoAuthenticationProvider daoAuthenticationProvider() {
         http.authorizeRequests()
                 .antMatchers("/", "/login", "/logout").permitAll() // доступность всем
                 .antMatchers("/user/**").access("hasAnyRole('ROLE_ADMIN')") // разрешаем входить на /user пользователям с ролью User, Admin
-                .antMatchers("/client/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
                 .and()
                 .formLogin()  // Spring сам подставит свою логин форму
                 .successHandler(new LoginSuccessHandler()) // подключаем наш SuccessHandler для перенеправления по ролям

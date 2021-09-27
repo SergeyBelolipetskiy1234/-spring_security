@@ -27,6 +27,8 @@
     <th>Age</th>
     <th>Email</th>
     <th>Id</th>
+    <th>Role</th>
+    <th>Password</th>
 
   </tr>
   <td th:text="${user.getUsername()}">VALUE</td>
@@ -34,7 +36,8 @@
   <td th:text="${user.getAge()}">VALUE</td>
   <td th:text="${user.getEmail()}">VALUE</td>
   <td th:text="${user.getId()}">VALUE</td>
-
+  <td th:each="role: ${roles}"><p th:text="${role.name}"></p></td>
+  <td th:text="${user.getPassword()}">VALUE</td>
 </table>
 
 <br/>
