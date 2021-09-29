@@ -3,7 +3,6 @@ package ru.belolipetsckiy.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
@@ -110,8 +109,6 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-
-
     public int getId() {
         return id;
     }
@@ -145,13 +142,13 @@ public class User implements UserDetails {
         return true;
     }
 
-
     @Override
     public boolean isEnabled() {
         return true;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Role: " +  roles;
+    }
 }

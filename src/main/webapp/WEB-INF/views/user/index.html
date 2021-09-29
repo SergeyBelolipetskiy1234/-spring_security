@@ -41,7 +41,7 @@
     <td th:utext="${user.getAge}">Age</td>
     <td th:utext="${user.getEmail}">Email</td>
     <td th:text="${user.getId()}">Id</td>
-    <td th:each="role: ${roles}"><p th:text="${role.name}"></p></td>
+    <td th:text="${user.toString()}">Role</td>
     <td th:text="${user.getPassword()}">Password</td>
 </tr>
 </table>

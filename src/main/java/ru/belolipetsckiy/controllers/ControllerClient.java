@@ -12,7 +12,6 @@ public class ControllerClient {
     private UserService userService;
     private RoleService roleService;
 
-
     public ControllerClient(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;

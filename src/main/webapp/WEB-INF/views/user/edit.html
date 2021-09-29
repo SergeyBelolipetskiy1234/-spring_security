@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Update user</title>
@@ -37,9 +38,11 @@
 
     <br/>
 
-    <input type="checkbox" name="roles" value="ROLE_USER"/>USER
-    <input type="checkbox" name="roles" value="ROLE_ADMIN"/>ADMIN
+    <input type="checkbox"  th:id="2" name="ADMIN" value="ADMIN">ADMIN</p>
+    <input type="checkbox"  th:id="1"  name="USER" value="USER">USER</p>
 
+
+    <br/>
     <input type="submit" value="Create"/>
 </form>
 

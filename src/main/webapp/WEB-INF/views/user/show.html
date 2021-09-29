@@ -37,7 +37,7 @@
 <td th:text="${user.getAge()}">VALUE</td>
 <td th:text="${user.getEmail()}">VALUE</td>
 <td th:text="${user.getId()}">VALUE</td>
-<td th:each="role: ${roles}"><p th:text="${role.name}"></p></td>
+<td th:text="${user.toString()}">Role</td>
 <td th:text="${user.getPassword()}">VALUE</td>
 <td>
 <a th:href="@{/user/{id}/edit(id=${user.getId()})}">Edit</a>

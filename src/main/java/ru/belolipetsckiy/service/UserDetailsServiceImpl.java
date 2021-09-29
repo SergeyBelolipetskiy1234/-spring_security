@@ -7,12 +7,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.belolipetsckiy.models.User;
+
 @Service
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
-    private UserService userService;
 
+    private UserService userService;
+    @Autowired
+    public UserDetailsServiceImpl(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -20,8 +24,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException(String.format("User '%' not found", s));
         }
-
-
         return user;
     }
 }
