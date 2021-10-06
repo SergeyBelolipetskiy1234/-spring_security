@@ -3,7 +3,6 @@ package ru.belolipetsckiy.models;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "roles")
@@ -13,8 +12,6 @@ public class Role implements GrantedAuthority {
     private Long id;
     @Column(name = "role")
     private String name;
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
 
     public Role(Long id, String name) {
         this.id = id;

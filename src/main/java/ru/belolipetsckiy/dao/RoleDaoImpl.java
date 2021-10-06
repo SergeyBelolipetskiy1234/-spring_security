@@ -1,7 +1,6 @@
 package ru.belolipetsckiy.dao;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import ru.belolipetsckiy.models.Role;
 
 import javax.persistence.EntityManager;
@@ -10,7 +9,6 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-@Transactional
 public class RoleDaoImpl implements RoleDao{
 
     @PersistenceContext

@@ -51,8 +51,6 @@ public class UserController {
     @PostMapping
     public String create(@RequestParam(value = "ADMIN", required = false) String ADMIN,
                          @RequestParam(value = "USER", required = false) String USER, @ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
-        if(bindingResult.hasErrors())
-            return "user/new";
 
         Set<Role> roles = new HashSet<>();
         if(ADMIN != null){
@@ -67,7 +65,7 @@ public class UserController {
 
         user.setRoles(roles);
         userService.save(user);
-        return "redirect:/user";
+        return bindingResult.hasErrors() ? "user/new" : "redirect:/user";
 
     }
 
@@ -83,8 +81,6 @@ public class UserController {
                           BindingResult bindingResult,
                          @RequestParam(value = "ADMIN", required = false) String ADMIN,
                          @RequestParam(value = "USER", required = false) String USER, @PathVariable("id") int id) {
-        if(bindingResult.hasErrors())
-            return "user/new";
 
         Set<Role> roles2 = new HashSet<>();
         if(ADMIN != null){
@@ -99,7 +95,7 @@ public class UserController {
 
         user.setRoles(roles2);
         userService.update(id, user);
-        return "redirect:/user";
+        return bindingResult.hasErrors() ? "user/new" : "redirect:/user";
     }
 
     @DeleteMapping("/{id}")

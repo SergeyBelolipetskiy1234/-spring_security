@@ -8,7 +8,6 @@ import ru.belolipetsckiy.models.Role;
 
 import java.util.List;
 @Service
-@Transactional
 public class RoleServiceImpl implements RoleService{
 
     private RoleDao roleDao;
@@ -18,26 +17,31 @@ public class RoleServiceImpl implements RoleService{
         this.roleDao = roleDao;
     }
 
+    @Transactional
     @Override
     public List<Role> getRoles() {
         return roleDao.getRoles();
     }
 
+    @Transactional
     @Override
     public void save(Role role) {
     roleDao.save(role);
     }
 
+    @Transactional
     @Override
     public void update(Role role) {
     roleDao.update(role);
     }
 
+    @Transactional
     @Override
     public void delete(int id) {
     roleDao.delete(id);
     }
 
+    @Transactional
     @Override
     public Role getRoleByName(String name) {
         return roleDao.getRoleByName(name);

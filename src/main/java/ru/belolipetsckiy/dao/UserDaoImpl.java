@@ -1,7 +1,6 @@
 package ru.belolipetsckiy.dao;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 import ru.belolipetsckiy.models.User;
 
 import javax.persistence.EntityManager;
@@ -12,14 +11,13 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-@Transactional
 public class UserDaoImpl implements UserDao{
 
     @PersistenceContext
     private EntityManager entityManager;
     @Override
     public List<User> index() {
-        return entityManager.createQuery("select u from User u", User.class).getResultList();
+        return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
     }
 
     @Override
@@ -39,14 +37,14 @@ public class UserDaoImpl implements UserDao{
 
     @Override
     public void delete(int id) {
-        Query query = entityManager.createQuery("delete from User u where u.id = :id");
+        Query query = entityManager.createQuery("DELETE FROM User u WHERE u.id = :id");
         query.setParameter("id", id);
         query.executeUpdate();
     }
 
     @Override
     public User getUserByName(String username) {
-        TypedQuery<User> query = entityManager.createQuery("select u from User u where u.username=:username",
+        TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.username=:username",
                 User.class).setParameter("username", username);
         return query.getSingleResult();
     }

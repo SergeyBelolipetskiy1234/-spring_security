@@ -8,7 +8,6 @@ import ru.belolipetsckiy.models.User;
 
 import java.util.List;
 @Service
-@Transactional
 public class UserServiceImpl implements UserService{
 
     private UserDao userDao;
@@ -17,31 +16,37 @@ public class UserServiceImpl implements UserService{
         this.userDao = userDao;
     }
 
+    @Transactional
     @Override
     public List<User> index() {
         return userDao.index();
     }
 
+    @Transactional
     @Override
     public User show(int id) {
         return userDao.show(id);
     }
 
+    @Transactional
     @Override
     public void save(User user) {
         userDao.save(user);
     }
 
+    @Transactional
     @Override
     public void update(int id, User user) {
         userDao.update(id, user);
     }
 
+    @Transactional
     @Override
     public void delete(int id) {
         userDao.delete(id);
     }
 
+    @Transactional
     @Override
     public User getUserByName(String username) {
         return userDao.getUserByName(username);
